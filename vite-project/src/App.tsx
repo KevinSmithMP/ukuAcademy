@@ -1,35 +1,88 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+   
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState('');
+  const [rut, setRut] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [comentario, setComentario] = useState('');
+
+ 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); 
+    
+    console.log('Nombre:', nombre);
+    console.log('Apellido:', apellido);
+    console.log('Rut:', rut);
+    console.log('Correo electrónico:', correo);
+    console.log('Comentario:', comentario);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <h1>Formulario de Datos Personales</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="nombre">Nombre:</label>
+          <input
+            type="text"
+            id="nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="apellido">Apellido:</label>
+          <input
+            type="text"
+            id="apellido"
+            value={apellido}
+            onChange={(e) => setApellido(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="rut">Rut:</label>
+          <input
+            type="text"
+            id="rut"
+            value={rut}
+            onChange={(e) => setRut(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="correo">Correo electrónico:</label>
+          <input
+            type="email"
+            id="correo"
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="comentario">Comentario o mensaje:</label>
+          <textarea
+            id="comentario"
+            value={comentario}
+            onChange={(e) => setComentario(e.target.value)}
+            rows={6}
+            required
+          />
+        </div>
+
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  );
 }
 
-export default App
+export default App;
