@@ -6,15 +6,15 @@ body {
   justify-content: center; 
   align-items: center; 
   font-family: Arial, sans-serif; 
-  background-color: #f0f0f0; 
+
 }
 
 .App {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 10px;
   max-width: 600px;
   margin: auto;
-  margin: 200px;
+  margin: 100px;
 }
 
 h1 {
@@ -33,19 +33,19 @@ label {
 input, textarea {
   width: 100%;
   padding: 10px;
-  border: 2px solid #020202;
+  border: 4px solid #0c1725;
   border-radius: 5px;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #262ea0;
-  color: rgba(255, 255, 255, 0.959);
+  padding: 10px 10px;
+  background-color: #000000;
+  color: rgba(19, 6, 6, 0.959);
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0400ee;
+  background-color: #060618;
 }

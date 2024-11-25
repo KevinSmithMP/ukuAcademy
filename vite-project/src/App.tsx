@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
+import { Button } from '@mui/material';
 
-function App() {
+function Formulario() {
    
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
       <h1>Formulario de Datos Personales</h1>
       <form onSubmit={handleSubmit}>
+
         <div>
           <label htmlFor="nombre">Nombre:</label>
           <input
@@ -79,8 +81,17 @@ function App() {
           />
         </div>
 
-        <button type="submit">Guardar</button>
+        <Button type="submit">Guardar</Button>
       </form>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div className="App">
+      <h1></h1>
+      <Formulario />
     </div>
   );
 }
