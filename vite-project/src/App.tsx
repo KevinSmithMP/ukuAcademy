@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { Button } from '@mui/material';
+import { Button} from '@mui/material';
 
-function Formulario() {
-   
+    const Formulario: React.FC = () =>{
+      const [] = useState('')
+ 
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [rut, setRut] = useState('');
@@ -87,10 +88,10 @@ function Formulario() {
   );
 }
 
-function App() {
+const App: React.FC =() => {
   return (
     <div className="App">
-      <h1></h1>
+      <h1>Formulario Personal</h1>
       <Formulario />
     </div>
   );
