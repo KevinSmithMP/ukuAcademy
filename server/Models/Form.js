@@ -1,11 +1,23 @@
 const mongoose = require('mongoose');
 
 const formSchema = new mongoose.Schema({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    email: { type: String, required: true },
-    phone: { type: String, required: true },
-    comment: { type: String, required: true }
+    name:String,
+    apellido:String,
+    rut:String,
+    email:String,
+    comnetario:String
+
+},{
+    collection:"form"
+
+},{
+    methods:{
+
+        findDocuments(){
+            return mongoose.model('Form').find({})
+     }
+ }
+  
 });
 
 const Form = mongoose.model('forms', formSchema);
