@@ -6,8 +6,15 @@ app.use(express.json());
 
 const cors = require('cors');
 
+app.use(cors());
+
+require('./db/connection');
+const Forms = require('./Models/Form')
+
 app.post("/", async(req,res)=>{
-    res.send(result);
+  let form = new Forms(req.body);
+  let result = await form.save();
+  res.send(result);
 })
 
 app.get('/', async(res)=>{
@@ -16,10 +23,7 @@ app.get('/', async(res)=>{
     res.send(result);
 })
 
-require('./db/connection');
-const Forms = require('./Models/Form')
-
-app.get('/', async (req, res) => {
+app.get('/employees', async (req, res) => {
     try {
       const formularios = await Form.formind({});
       res.status(200).json(formularios);

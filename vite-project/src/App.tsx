@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Button} from '@mui/material';
+import Listaformulario from './pages/GetFormulario';
 
     const Formulario: React.FC = () =>{
       const [] = useState('')
@@ -12,15 +13,25 @@ import { Button} from '@mui/material';
   const [comentario, setComentario] = useState('');
 
  
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault(); 
+    try{
+      const response = await fetch('http://localhost:4000/',{
+        method: 'post',
+        body: JSON.stringify({nombre, apellido, rut, correo, comentario}),
+        headers:{
+          'Content-Type': 'application/json'
+        },
+      });
+      const result = await response.json();
+      console.log(result);
+      }catch(error){
+      console.log(error);
+      }
+
     
-    console.log('Nombre:', nombre);
-    console.log('Apellido:', apellido);
-    console.log('Rut:', rut);
-    console.log('Correo electrónico:', correo);
-    console.log('Comentario:', comentario);
   };
+    
 
   return (
     <div className="App">
@@ -71,30 +82,18 @@ import { Button} from '@mui/material';
           />
         </div>
 
-        <div>
-          <label htmlFor="comentario">Comentario o mensaje:</label>
-          <textarea
-            id="comentario"
-            value={comentario}
-            onChange={(e) => setComentario(e.target.value)}
-            rows={6}
-            required
-          />
-        </div>
-
-        <Button type="submit">Guardar</Button>
+       
+        <Button onClick={handleSubmit} type="submit">Guardar</Button>
       </form>
     </div>
   );
 }
-
 const App: React.FC =() => {
   return (
     <div className="App">
-      <h1>Formulario Personal</h1>
       <Formulario />
     </div>
   );
 }
-
+   
 export default App;
