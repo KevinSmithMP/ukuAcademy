@@ -5,7 +5,7 @@ const formSchema = new mongoose.Schema({
     apellido:String,
     rut:String,
     email:String,
-    comnetario:String
+    comnetario:String,
 
 },{
     collection:"form"

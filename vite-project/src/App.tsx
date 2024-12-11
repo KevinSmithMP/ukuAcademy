@@ -24,6 +24,7 @@ import Listaformulario from './pages/GetFormulario';
         },
       });
       const result = await response.json();
+      console.log({nombre, apellido, rut, correo})
       console.log(result);
       }catch(error){
       console.log(error);
@@ -82,6 +83,14 @@ import Listaformulario from './pages/GetFormulario';
           />
         </div>
 
+        <div>
+          <label htmlFor="Comentario">Comentario o Mensaje</label>
+          <input type="mensaje" 
+                 id='mesaje'
+                 value={comentario}
+                 onChange={(e) => setComentario(e.target.value)}/>
+        </div>
+
        
         <Button onClick={handleSubmit} type="submit">Guardar</Button>
       </form>
@@ -91,7 +100,7 @@ import Listaformulario from './pages/GetFormulario';
 const App: React.FC =() => {
   return (
     <div className="App">
-      <Formulario />
+      <Formulario/>
     </div>
   );
 }

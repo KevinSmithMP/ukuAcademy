@@ -23,10 +23,10 @@ app.get('/', async(res)=>{
     res.send(result);
 })
 
-app.get('/employees', async (req, res) => {
+app.get('/Listaformulario', async (req, res) => {
     try {
-      const formularios = await Form.formind({});
-      res.status(200).json(formularios);
+      const Formularios = await Forms.find()
+      res.status(200).json(Formularios)
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
