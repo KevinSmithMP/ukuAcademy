@@ -1,25 +1,14 @@
-import { Outlet, Link } from "react-router-dom";
-
-const Layout = () => {
-  return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blogs">Blogs</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <Outlet />
-    </>
-  )
-};
-
-export default Layout;
+/* app.put('/Listaformularios/:id', validateObjectId, async (req, res) => {
+const { Types } = require('mongoose');
+const id = new Types.ObjectId(req.params.id);
+const updateData = req.body;
+console.log(id)
+        try {
+        const result = await Forms.findByIdAndUpdate(id, updateData, {new: true });
+        res.status(200).json(result);  
+        }catch (error){
+        console.error(error);
+        res.status(500).send("Error al actualizar el formulario");
+        }
+      });
+        */

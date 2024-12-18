@@ -1,0 +1,22 @@
+.header {
+    background-color: aquamarine;
+    color: rgb(0, 0, 0);
+    padding: 50px;
+    
+}
+    .title {
+        text-align: center;
+        
+    }
+    .link-list {
+        display: flex;
+        justify-content: space-around;
+
+        .link {
+            color: rgb(5, 4, 4);
+            text-decoration: none;
+        }
+
+    }
+
+

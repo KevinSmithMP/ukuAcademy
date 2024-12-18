@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
+import Formulario from "./App";
 import Listaformulario from "./pages/GetFormulario";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
@@ -8,16 +8,12 @@ import NoPage from "./pages/NoPage";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Formulario />}/>
           <Route path="/Listaformulario" element={<Listaformulario/>} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
       </Routes>
-    </BrowserRouter>
+    
   );
 }
 

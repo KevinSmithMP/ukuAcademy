@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const formSchema = new mongoose.Schema({
-    name:String,
+    nombre:String,
     apellido:String,
     rut:String,
-    email:String,
-    comnetario:String,
+    correo:String,
+    comentario:String,
+    Id:String,
 
 },{
     collection:"form"

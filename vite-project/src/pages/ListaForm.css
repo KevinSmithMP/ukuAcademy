@@ -1,4 +1,66 @@
+
 .borde{
-    border: solid black 4px;
+    border: solid black 5px;
 
 }
+
+.center{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+   
+  .item p {
+    margin: 8px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  
+  .item p strong {
+    font-weight: bold;
+    color: #555;
+  }
+  
+
+  .center {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+
+  .boton1, .boton2 {
+    flex: 1;
+  }
+  
+  .boton1 {
+    margin-right: 8px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+
+  

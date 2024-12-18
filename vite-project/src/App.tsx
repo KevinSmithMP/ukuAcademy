@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Button} from '@mui/material';
+import HeaderComponent from './components/HeaderComponen';
 import Listaformulario from './pages/GetFormulario';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import Dato from "./components/Dato";
     const Formulario: React.FC = () =>{
-      const [] = useState('')
+       const [] = useState('')
+      
  
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -15,94 +19,76 @@ import Listaformulario from './pages/GetFormulario';
  
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault(); 
-    try{
+    try {
       const response = await fetch('http://localhost:4000/',{
         method: 'post',
         body: JSON.stringify({nombre, apellido, rut, correo, comentario}),
         headers:{
           'Content-Type': 'application/json'
         },
-      });
+    });
       const result = await response.json();
-      console.log({nombre, apellido, rut, correo})
+      console.log({nombre, apellido, rut, correo, comentario})
       console.log(result);
       }catch(error){
       console.log(error);
       }
 
+      console.log({
+        nombre,
+        apellido,
+        rut,
+        correo,
+        comentario,
+      });
+      alert('Formulario enviado con éxito');
+     
+};
     
-  };
-    
-
   return (
+    <>
+   <HeaderComponent 
+   />
     <div className="App">
       <h1>Formulario de Datos Personales</h1>
       <form onSubmit={handleSubmit}>
+       
+       <Dato nombre={''} setNombre={function (value: React.SetStateAction<string>): void {
+            throw new Error('Function not implemented.');
+          } } apellido={''} setApellido={function (value: React.SetStateAction<string>): void {
+            throw new Error('Function not implemented.');
+          } } rut={''} setRut={function (value: React.SetStateAction<string>): void {
+            throw new Error('Function not implemented.');
+          } } correo={''} setCorreo={function (value: React.SetStateAction<string>): void {
+            throw new Error('Function not implemented.');
+          } } comentario={''} setComentario={function (value: React.SetStateAction<string>): void {
+            throw new Error('Function not implemented.');
+          } }       
 
-        <div>
-          <label htmlFor="nombre">Nombre:</label>
-          <input
-            type="text"
-            id="nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
-        </div>
 
-        <div>
-          <label htmlFor="apellido">Apellido:</label>
-          <input
-            type="text"
-            id="apellido"
-            value={apellido}
-            onChange={(e) => setApellido(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="rut">Rut:</label>
-          <input
-            type="text"
-            id="rut"
-            value={rut}
-            onChange={(e) => setRut(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="correo">Correo electrónico:</label>
-          <input
-            type="email"
-            id="correo"
-            value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="Comentario">Comentario o Mensaje</label>
-          <input type="mensaje" 
-                 id='mesaje'
-                 value={comentario}
-                 onChange={(e) => setComentario(e.target.value)}/>
-        </div>
+       />
 
        
         <Button onClick={handleSubmit} type="submit">Guardar</Button>
       </form>
     </div>
+  
+    </>
+
+
   );
 }
-const App: React.FC =() => {
+
+function App() {
   return (
-    <div className="App">
-      <Formulario/>
-    </div>
+    <BrowserRouter>   
+      <Routes>      
+        <Route path="/" element={<Formulario />}/>       
+        <Route path="/Listaformulario" element={<Listaformulario/>} />                   
+      </Routes>       
+    </BrowserRouter>
   );
 }
    
 export default App;
+
