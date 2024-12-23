@@ -4,8 +4,8 @@ import { Button} from '@mui/material';
 import HeaderComponent from './components/HeaderComponen';
 import Listaformulario from './pages/GetFormulario';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import Dato from "./components/Dato";
+import InputField from './components/inputField';
+
     const Formulario: React.FC = () =>{
        const [] = useState('')
       
@@ -46,37 +46,63 @@ import Dato from "./components/Dato";
 };
     
   return (
-    <>
-   <HeaderComponent 
-   />
+  <>
+   <HeaderComponent/>
+  
     <div className="App">
       <h1>Formulario de Datos Personales</h1>
       <form onSubmit={handleSubmit}>
        
-       <Dato nombre={''} setNombre={function (value: React.SetStateAction<string>): void {
-            throw new Error('Function not implemented.');
-          } } apellido={''} setApellido={function (value: React.SetStateAction<string>): void {
-            throw new Error('Function not implemented.');
-          } } rut={''} setRut={function (value: React.SetStateAction<string>): void {
-            throw new Error('Function not implemented.');
-          } } correo={''} setCorreo={function (value: React.SetStateAction<string>): void {
-            throw new Error('Function not implemented.');
-          } } comentario={''} setComentario={function (value: React.SetStateAction<string>): void {
-            throw new Error('Function not implemented.');
-          } }       
-
-
+      
+       <InputField
+            label="Nombre"
+            type="text"
+            id="nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            required
        />
-
-       
-        <Button onClick={handleSubmit} type="submit">Guardar</Button>
+       <InputField
+            label="Apellido"
+            type="text"
+            id="apellido"
+            value={apellido}
+            onChange={(e) => setApellido(e.target.value)}
+            required
+       />
+       <InputField
+            label="Rut"
+            type="text"
+            id="rut"
+            value={rut}
+            onChange={(e) => setRut(e.target.value)}
+            required
+       />
+       <InputField
+            label="Correo electrónico"
+            type="email"
+            id="correo"
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
+            required
+       />
+       <InputField
+            label="Comentario o Mensaje"
+            type="text"
+            id="comentario"
+            value={comentario}
+            onChange={(e) => setComentario(e.target.value)}
+       />
+          <Button onClick={handleSubmit} type="submit"> Guardar</Button>
       </form>
     </div>
+
+  </>
   
-    </>
-
-
   );
+
+
+
 }
 
 function App() {

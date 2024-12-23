@@ -12,3 +12,17 @@ console.log(id)
         }
       });
         */
+
+      /*nombre={''} setNombre={function (value: React.SetStateAction<string>): void {
+        throw new Error('Function not implemented.');
+      } } apellido={''} setApellido={function (value: React.SetStateAction<string>): void {
+        throw new Error('Function not implemented.');
+      } } rut={''} setRut={function (value: React.SetStateAction<string>): void {
+        throw new Error('Function not implemented.');
+      } } correo={''} setCorreo={function (value: React.SetStateAction<string>): void {
+        throw new Error('Function not implemented.');
+      } } comentario={''} setComentario={function (value: React.SetStateAction<string>): void {
+        throw new Error('Function not implemented.');
+      } }       
+      */
+
